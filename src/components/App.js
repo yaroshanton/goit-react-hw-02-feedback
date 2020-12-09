@@ -30,11 +30,12 @@ export default class App extends Component {
         const { good, neutral, bad } = this.state;
 
         const visibleTotal = this.countTotalFeedback();
+        const visiblePositiveFeedback = this.countPositiveFeedbackPercentage();
 
         return (
             <Section title="Please leave feedback">
                 <FeedbackOptions onLeaveFeedback={this.incrimentFeedback} />
-                <Statistics good={good} neutral={neutral} bad={bad} total={visibleTotal} positivePercentage={this.countPositiveFeedbackPercentage()}>
+                <Statistics good={good} neutral={neutral} bad={bad} total={visibleTotal} positivePercentage={visiblePositiveFeedback}>
                     <Notification message="No feedback given" />
                 </Statistics>
             </Section>
